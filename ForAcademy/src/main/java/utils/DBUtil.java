@@ -17,15 +17,17 @@ public class DBUtil {
                 //user 'admin'@'localhost' password 'Admin@2022'
                 //db foracedemy
                 // set the DB url , user name, and password
-                String url = "jdbc:mysql://localhost/foracademy";
-                String username = "admin";
-                String password = "Admin@2022";
+                String url = "jdbc:mysql://localhost:3308/blog";
+                String username = "root";
+                String password = "";
                 // get and return connection
                 connection = DriverManager.getConnection(url,username,password);
+                System.out.println("success");
                 return connection;
             }
             catch(SQLException e){
                 throw new DBException(e);
+                //System.out.println("not success");
             }
         }
 
