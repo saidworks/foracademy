@@ -75,8 +75,7 @@ public class Utilisateur {
         this.status_user = status_user;
     }
 
-    public Utilisateur(int id_user, String nom_user, String prenom_user, boolean genre, String telephone, String email, String password, boolean status_user) {
-        this.id_user = id_user;
+    public Utilisateur(String nom_user, String prenom_user, boolean genre, String telephone, String email, String password, boolean status_user) {
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.genre = genre;

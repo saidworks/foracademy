@@ -1,5 +1,10 @@
 package utils;
 
+import dao.roleDAO.RoleDaoImp;
+import dao.secretaireDao.SecretaireDaoImp;
+import models.Role;
+import models.Secretaire;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,12 +22,11 @@ public class DBUtil {
                 //user 'admin'@'localhost' password 'Admin@2022'
                 //db foracedemy
                 // set the DB url , user name, and password
-                String url = "jdbc:mysql://localhost:3308/blog";
+                String url = "jdbc:mysql://localhost:3306/foracademy";
                 String username = "root";
                 String password = "";
                 // get and return connection
                 connection = DriverManager.getConnection(url,username,password);
-                System.out.println("success");
                 return connection;
             }
             catch(SQLException e){
@@ -31,11 +35,16 @@ public class DBUtil {
             }
         }
 
-
     }
 
     public static void main(String[] args) throws DBException {
-        Connection cnx = DBUtil.getConnection();
+        /*Role role = new Role("user");
+        RoleDaoImp rl = new RoleDaoImp();
+        rl.saveRole(role);*/
+
+        Secretaire secretaire =new Secretaire("aimad","damia", true,"234223323","test@test","12345", true, "2007-11-11");
+        SecretaireDaoImp secretaireDaoImp = new SecretaireDaoImp();
+        secretaireDaoImp.saveSecretaire(secretaire);
     }
     public static synchronized void closeConnection() throws DBException{
         if(connection != null) {
