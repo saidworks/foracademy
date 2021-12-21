@@ -1,11 +1,17 @@
 package utils;
 
+import dao.roleDAO.RoleDaoImp;
+import dao.secretaireDao.SecretaireDaoImp;
+import models.Role;
+import models.Secretaire;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
 public class DBUtil {
+=======
     private static final String HOST = "localhost";
     private static final int PORT = 3308;
     private static final String DB_NAME = "for_academy";
