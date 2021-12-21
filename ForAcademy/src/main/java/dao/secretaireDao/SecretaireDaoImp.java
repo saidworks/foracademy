@@ -25,6 +25,7 @@ public class SecretaireDaoImp implements IsecretaireDao{
             ps.setString(3, secretaire.getTelephone());
             ps.setString(4, secretaire.getEmail());
             ps.setString(5, secretaire.getPassword());
+            int i = ps.executeUpdate();
             int lastInserId = -1;
             rs = stmt.executeQuery("SELECT LAST_INSERT_ID()");
             if (rs.next()){
@@ -34,7 +35,7 @@ public class SecretaireDaoImp implements IsecretaireDao{
             PreparedStatement ps1 = connection.prepareStatement("INSERT INTO secretaire(id_secretaire, date_recrutement_secret) VALUES (?,?)");
             ps1.setInt(1,lastInserId);
             ps1.setString(2,secretaire.getDate_recrutmnt_secret());
-            int i = ps.executeUpdate();
+
             int j = ps1.executeUpdate();
             if (i == 1){
                 System.out.println("ps executed successfully");
