@@ -3,6 +3,7 @@ package dao.secretaireDao;
 import models.Secretaire;
 import utils.DBException;
 import utils.DBUtil;
+import utils.Utils;
 
 import java.sql.*;
 import java.util.List;
@@ -34,7 +35,7 @@ public class SecretaireDaoImp implements IsecretaireDao{
 
             PreparedStatement ps1 = connection.prepareStatement("INSERT INTO secretaire(id_secretaire, date_recrutement_secret) VALUES (?,?)");
             ps1.setInt(1,lastInserId);
-            ps1.setString(2,secretaire.getDate_recrutmnt_secret());
+            ps1.setDate(2, Utils.getSqlDate(secretaire.getDate_recrutmnt_secret()));
 
             int j = ps1.executeUpdate();
             if (i == 1){
@@ -42,6 +43,7 @@ public class SecretaireDaoImp implements IsecretaireDao{
             }
             if (j == 1){
                 System.out.println("succes ps 1");
+                System.out.println(secretaire.getDate_recrutmnt_secret());
             }
 
         } catch (DBException | SQLException e) {
@@ -52,6 +54,7 @@ public class SecretaireDaoImp implements IsecretaireDao{
     @Override
     public Secretaire selectById(int id)
     {
+
         return null;
     }
 

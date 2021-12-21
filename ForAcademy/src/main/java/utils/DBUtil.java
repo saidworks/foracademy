@@ -42,9 +42,11 @@ public class DBUtil {
         RoleDaoImp rl = new RoleDaoImp();
         rl.saveRole(role);*/
 
-        Secretaire secretaire =new Secretaire("aimad","damia", true,"234223323","test@test","12345", true, "2007-11-11");
+        Secretaire secretaire =new Secretaire("hajar","hajar", true,"2342323","hajar@test","12345", true);
         SecretaireDaoImp secretaireDaoImp = new SecretaireDaoImp();
         secretaireDaoImp.saveSecretaire(secretaire);
+
+
     }
     public static synchronized void closeConnection() throws DBException{
         if(connection != null) {
