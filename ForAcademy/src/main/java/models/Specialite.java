@@ -37,4 +37,5 @@ public class Specialite {
                 ", nom_specialite='" + nom_specialite + '\'' +
                 '}';
     }
+package models;public class Specialite {
 }
