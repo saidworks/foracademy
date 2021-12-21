@@ -11,54 +11,21 @@ import java.sql.SQLException;
 
 
 public class DBUtil {
+=======
+    private static final String HOST = "localhost";
+    private static final int PORT = 3308;
+    private static final String DB_NAME = "for_academy";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "";
+
     private static Connection connection;
-    private DBUtil() {}
-    public static synchronized Connection getConnection() throws DBException{
-        if(connection != null) {
-            return connection;
+
+    public static Connection getConnection() {
+        try {
+            connection = DriverManager.getConnection(String.format("jdbc:mysql://%s:%d/%s", HOST,PORT,DB_NAME),USERNAME,PASSWORD);
+        }catch (SQLException se){
+            se.printStackTrace();
         }
-        else {
-            try{
-                //user 'admin'@'localhost' password 'Admin@2022'
-                //db foracedemy
-                // set the DB url , user name, and password
-                String url = "jdbc:mysql://localhost:3306/foracademy";
-                String username = "root";
-                String password = "";
-                // get and return connection
-                connection = DriverManager.getConnection(url,username,password);
-                return connection;
-            }
-            catch(SQLException e){
-                throw new DBException(e);
-                //System.out.println("not success");
-            }
-        }
-
-    }
-
-    public static void main(String[] args) throws DBException {
-        /*Role role = new Role("user");
-        RoleDaoImp rl = new RoleDaoImp();
-        rl.saveRole(role);*/
-
-        Secretaire secretaire =new Secretaire("hajar","hajar", true,"2342323","hajar@test","12345", true);
-        SecretaireDaoImp secretaireDaoImp = new SecretaireDaoImp();
-        secretaireDaoImp.saveSecretaire(secretaire);
-
-
-    }
-    public static synchronized void closeConnection() throws DBException{
-        if(connection != null) {
-            try {
-                connection.close();
-            }
-            catch(SQLException e){
-                throw new DBException(e);
-            }
-            finally {
-                connection = null;
-            }
-        }
+        return connection;
     }
 }
