@@ -1,4 +1,4 @@
-package dao.specialite;
+/*package dao.specialite;
 
 import models.Specialite;
 import utils.DBUtil;
@@ -133,3 +133,5 @@ public class SpecialiteDaoImp implements SpecialiteDao {
         }
     }
 }
+
+ */

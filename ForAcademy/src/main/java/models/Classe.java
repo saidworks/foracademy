@@ -15,6 +15,14 @@ public class Classe {
         this.horaire_fin_class = horaire_fin_class;
     }
 
+    public int getId_class() {
+        return id_class;
+    }
+
+    public void setId_class(int id_class) {
+        this.id_class = id_class;
+    }
+
     public String getNom_class() {
         return nom_class;
     }
