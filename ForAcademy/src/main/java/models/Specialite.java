@@ -4,7 +4,8 @@ public class Specialite {
     private int id_specialite;
     private String nom_specialite;
 
-    public Specialite() {
+    public Specialite(int id_specialite , String nom_specialite) {
+        this.id_specialite = id_specialite;
         this.nom_specialite = nom_specialite;
     }
 
@@ -23,3 +24,4 @@ public class Specialite {
     public void setNom_specialite(String nom_specialite) {
         this.nom_specialite = nom_specialite;
     }
+}

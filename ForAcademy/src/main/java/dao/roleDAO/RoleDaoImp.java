@@ -21,7 +21,7 @@ public class RoleDaoImp implements IroleDao {
                 System.out.println("succes insert role: "+ role.getNom_role());
             }
 
-        } catch (DBException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -42,7 +42,7 @@ public class RoleDaoImp implements IroleDao {
                 roles.add(role);
             }
 
-        } catch (SQLException | DBException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return roles;
@@ -63,11 +63,11 @@ public class RoleDaoImp implements IroleDao {
 
                 return role;
             }
-        } catch (DBException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
-return null;
+        return null;
     }
 
     @Override
@@ -77,7 +77,7 @@ return null;
             connection = DBUtil.getConnection();
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("DELETE * FROM role whiere id =" + id);
-        } catch (DBException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -91,13 +91,13 @@ return null;
         try {
             connection = DBUtil.getConnection();
             PreparedStatement ps = connection.prepareStatement("UPDATE role SET name=? WHERE id="+role.getId_role());
-            ps.setString(1,role.getNom_role() );
+            ps.setString(1,role.getNom_role());
             int i = ps.executeUpdate();
             if (i == 1){
                 System.out.println("succes update role : "+role.getNom_role());
             }
 
-        } catch (DBException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

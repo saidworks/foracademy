@@ -1,5 +1,6 @@
-package dao.specialite;
+package dao.adress;
 
+import models.Adress;
 import models.Specialite;
 import utils.DBUtil;
 
@@ -10,22 +11,25 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SpecialiteDaoImp implements SpecialiteDao {
+public class AdressDaoImp implements AdressDao {
+
     @Override
-    public List<Specialite> findAll() {
+    public List<Adress> findAll() {
+
         Connection conn = DBUtil.getConnection();
         if (conn == null) {
             return null;
         }
-        List<Specialite> specialites = new LinkedList<>();
+        List<Adress> adresses = new LinkedList<>();
 
-        String query = "SELECT * FROM specialite;";
+        String query = "SELECT * FROM adresse;";
         try (PreparedStatement preparedStatement = conn.prepareStatement(query);) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                Specialite specialite = new Specialite(resultSet.getInt("id_specialite"),
-                        resultSet.getString("nom_specialite"));
-                specialites.add(specialite);
+                Adress adress = new Adress(resultSet.getInt("id_adress"),
+                        resultSet.getString("line_adress"), resultSet.getString("ville_adress"),
+                        resultSet.getInt("code_postale_adress"));
+                adresses.add(adress);
             }
         } catch (SQLException se) {
             se.printStackTrace();
@@ -37,23 +41,25 @@ public class SpecialiteDaoImp implements SpecialiteDao {
             }
 
         }
-        return specialites;
-    }
-    @Override
-    public Specialite findById(int id) {
+        return adresses;
 
+    }
+
+    @Override
+    public Adress findById(int id) {
         Connection conn = DBUtil.getConnection();
         if (conn == null) {
             return null;
         }
-        String query ="SELECT * FROM specialite WHERE id_specialite= ?;";
+        String query ="SELECT * FROM adresse WHERE id_adress= ?;";
         try (PreparedStatement preparedStatement = conn.prepareStatement(query)){
             preparedStatement.setInt(1,id);
             ResultSet resultSet =  preparedStatement.executeQuery();
             if(resultSet.next()){
-                Specialite specialite = new Specialite(resultSet.getInt("id_specialite"),
-                        resultSet.getString("nom_specialite"));
-                return specialite;
+                Adress adress = new Adress(resultSet.getInt("id_adress"),
+                        resultSet.getString("line_adress"), resultSet.getString("ville_adress"),
+                        resultSet.getInt("code_postale_adress"));
+                return adress;
             }
 
         }catch (SQLException se){
@@ -69,15 +75,17 @@ public class SpecialiteDaoImp implements SpecialiteDao {
     }
 
     @Override
-    public void save(Specialite specialite){
+    public void save(Adress adress) {
         Connection conn = DBUtil.getConnection();
         if (conn == null) {
             return;
         }
-        String query ="INSERT INTO specialite (nom_specialite) VALUES (?);";
+        String query ="INSERT INTO adresse (line_adress, ville_adress, code_postale_adress) VALUES (?, ?, ?);";
         try(PreparedStatement preparedStatement = conn.prepareStatement(query);){
 
-            preparedStatement.setString(1, specialite.getNom_specialite());
+            preparedStatement.setString(1, adress.getLine_adress());
+            preparedStatement.setString(2, adress.getVille_adress());
+            preparedStatement.setInt(3, adress.getCode_postale_adress());
             preparedStatement.executeUpdate();
         }catch (SQLException se){
             se.printStackTrace();
@@ -88,18 +96,21 @@ public class SpecialiteDaoImp implements SpecialiteDao {
                 se.printStackTrace();
             }
         }
+
     }
 
     @Override
-    public void update(Specialite specialite) {
+    public void update(Adress adress) {
         Connection conn = DBUtil.getConnection();
         if (conn == null) {
             return ;
         }
-        String query = "UPDATE specialite SET nom_specialite = ? WHERE id_specialite = ?;";
+        String query = "UPDATE adresse SET line_adress = ?, ville_adress = ?, code_postale_adress = ?  WHERE id_adress = ?;";
         try (PreparedStatement preparedStatement = conn.prepareStatement(query);) {
-            preparedStatement.setString(1, specialite.getNom_specialite());
-            preparedStatement.setInt(2, specialite.getId_specialite());
+            preparedStatement.setString(1, adress.getLine_adress());
+            preparedStatement.setString(2, adress.getVille_adress());
+            preparedStatement.setInt(3, adress.getCode_postale_adress());
+            preparedStatement.setInt(4, adress.getId_adress());
             preparedStatement.executeUpdate();
         } catch (SQLException se) {
             se.printStackTrace();
@@ -112,13 +123,14 @@ public class SpecialiteDaoImp implements SpecialiteDao {
         }
 
     }
+
     @Override
     public void deleteById(int id) {
         Connection conn = DBUtil.getConnection();
         if (conn == null) {
             return ;
         }
-        String query = "DELETE FROM specialite  WHERE id_specialite = ?;";
+        String query = "DELETE FROM adresse  WHERE id_adress = ?;";
         try (PreparedStatement preparedStatement = conn.prepareStatement(query);) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
@@ -133,5 +145,3 @@ public class SpecialiteDaoImp implements SpecialiteDao {
         }
     }
 }
-
- 
