@@ -9,5 +9,7 @@ public interface IsecretaireDao {
     Secretaire selectById(int id);
     List<Secretaire> selectAll();
     void deleteSecretaire(int id);
-    void updateSecretaire(Secretaire secretaire, int id);
+
+    void updateSecretaire(Secretaire secretaire);
+    void updateDetailsSecretaire(Secretaire secretaire, String col, String newValue);
 }

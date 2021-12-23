@@ -11,10 +11,9 @@ import java.sql.SQLException;
 
 
 public class DBUtil {
-=======
     private static final String HOST = "localhost";
-    private static final int PORT = 3308;
-    private static final String DB_NAME = "for_academy";
+    private static final int PORT = 3306;
+    private static final String DB_NAME = "foracademy";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
 

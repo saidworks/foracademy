@@ -23,3 +23,4 @@ public class Specialite {
     public void setNom_specialite(String nom_specialite) {
         this.nom_specialite = nom_specialite;
     }
+}
