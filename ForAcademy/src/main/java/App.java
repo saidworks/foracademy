@@ -4,6 +4,9 @@ import dao.specialite.SpecialiteDao;
 import dao.specialite.SpecialiteDaoImp;
 import models.Adress;
 import models.Specialite;
+
+import services.secretaire.SecretaireServiceImp;
+import services.secretaire.SecretaireServiceInt;
 import utils.DBUtil;
 
 import java.sql.Connection;
@@ -57,5 +60,7 @@ public class App {
         //to delete one object
         adressDao.deleteById(2);
 
+        SecretaireServiceInt secretaireService = new SecretaireServiceImp();
+        secretaireService.changeMyPassword();
     }
 }
