@@ -140,6 +140,7 @@ public class SecretaireDaoImp implements IsecretaireDao {
             connection = DBUtil.getConnection();
             PreparedStatement ps = connection.prepareStatement("UPDATE utilisateur SET "+ col+"= ? WHERE id_user="+secretaire.getId_user());
             ps.setString(1, newValue);
+
             int i = ps.executeUpdate();
             if (i == 1){
                 System.out.println("change "+col+" successfully");

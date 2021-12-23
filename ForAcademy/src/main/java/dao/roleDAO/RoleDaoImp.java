@@ -91,7 +91,7 @@ public class RoleDaoImp implements IroleDao {
         try {
             connection = DBUtil.getConnection();
             PreparedStatement ps = connection.prepareStatement("UPDATE role SET name=? WHERE id="+role.getId_role());
-            ps.setString(1,role.getNom_role() );
+            ps.setString(1,role.getNom_role());
             int i = ps.executeUpdate();
             if (i == 1){
                 System.out.println("succes update role : "+role.getNom_role());

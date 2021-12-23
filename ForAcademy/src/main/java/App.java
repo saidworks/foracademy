@@ -61,6 +61,11 @@ public class App {
         adressDao.deleteById(2);
 
         SecretaireServiceInt secretaireService = new SecretaireServiceImp();
-        secretaireService.changeMyPassword();
+        //secretaireService.changeMyPassword();
+        secretaireService.secretairePointage();
+
+
+
+
     }
 }
