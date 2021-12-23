@@ -47,5 +47,15 @@ public class App {
         /*Adress adress = new Adress(1, "dior ssalam", "rabat", 350);
         adressDao.update(adress);*/
 
+        // to print all adresses
+        /*adressDao.findAll().forEach(System.out::println);*/
+
+        //to find an object by id
+         /*Adress adress =  adressDao.findById(2);
+         System.out.println(adress);*/
+
+        //to delete one object
+        adressDao.deleteById(2);
+
     }
 }

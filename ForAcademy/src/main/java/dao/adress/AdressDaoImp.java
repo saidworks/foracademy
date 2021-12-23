@@ -22,7 +22,7 @@ public class AdressDaoImp implements AdressDao {
         }
         List<Adress> adresses = new LinkedList<>();
 
-        String query = "SELECT * FROM adress;";
+        String query = "SELECT * FROM adresse;";
         try (PreparedStatement preparedStatement = conn.prepareStatement(query);) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
@@ -51,7 +51,7 @@ public class AdressDaoImp implements AdressDao {
         if (conn == null) {
             return null;
         }
-        String query ="SELECT * FROM adress WHERE id_adress= ?;";
+        String query ="SELECT * FROM adresse WHERE id_adress= ?;";
         try (PreparedStatement preparedStatement = conn.prepareStatement(query)){
             preparedStatement.setInt(1,id);
             ResultSet resultSet =  preparedStatement.executeQuery();
