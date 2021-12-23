@@ -16,6 +16,11 @@ public class App {
 
 
         SecretaireServiceInt secretaireService = new SecretaireServiceImp();
-        secretaireService.changeMyPassword();
+        //secretaireService.changeMyPassword();
+        secretaireService.secretairePointage();
+
+
+
+
     }
 }
