@@ -1,7 +1,10 @@
+import dao.admin.AdminDao;
+import dao.admin.AdminDaoImp;
 import dao.adress.AdressDao;
 import dao.adress.AdressDaoImp;
 import dao.specialite.SpecialiteDao;
 import dao.specialite.SpecialiteDaoImp;
+import models.Admin;
 import models.Adress;
 import models.Specialite;
 
@@ -58,11 +61,15 @@ public class App {
          System.out.println(adress);*/
 
         //to delete one object
-        adressDao.deleteById(2);
+        /*adressDao.deleteById(2);*/
 
         SecretaireServiceInt secretaireService = new SecretaireServiceImp();
         //secretaireService.changeMyPassword();
-        secretaireService.secretairePointage();
+        //secretaireService.secretairePointage();
+
+        AdminDao adminDao = new AdminDaoImp();
+        Admin admin = new Admin(0,"aimad","lmoden", true, "0647567788", "aimad@gmail.com","hhjejzhjzhj", true, 1, 1);
+        adminDao.save(admin);
 
 
 

@@ -1,6 +1,6 @@
 package models;
 
-public class Formateur extends User {
+public class Formateur {
     private String date_recrutement;
     public String getDate_recrutement() {
         return date_recrutement;
