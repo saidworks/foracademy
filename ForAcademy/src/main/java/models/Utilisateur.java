@@ -10,10 +10,14 @@ public class Utilisateur {
     private String email;
     private String password;
     private boolean status_user;
+    private int id_adress;
+    private int id_role;
 
+    public Utilisateur() {
+    }
 
     public Utilisateur(int id_user, String nom_user, String prenom_user, boolean genre_user,
-                       String telephone, String email, String password, boolean status_user) {
+                       String telephone, String email, String password, boolean status_user, int id_adress, int id_role) {
         this.id_user = id_user;
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
@@ -22,6 +26,8 @@ public class Utilisateur {
         this.email = email;
         this.password = password;
         this.status_user = status_user;
+        this.id_adress = id_adress;
+        this.id_role = id_role;
     }
 
     public int getId_user() {
@@ -87,8 +93,25 @@ public class Utilisateur {
     public void setStatus_user(boolean status_user) {
         this.status_user = status_user;
     }
+
+
+    public int getId_adress() {
+        return id_adress;
+    }
+
+    public void setId_adress(int id_adress) {
+        this.id_adress = id_adress;
+    }
+
+    public int getId_role() {
+        return id_role;
+    }
+
+    public void setId_role(int id_role) {
+        this.id_role = id_role;
+    }
     public Utilisateur getUtilisateur() {
-        return new Utilisateur(id_user, nom_user,prenom_user, genre_user, telephone,email,password,status_user);
+        return new Utilisateur(id_user, nom_user,prenom_user, genre_user, telephone,email,password,status_user, id_adress, id_role);
     }
     @Override
     public String toString() {
@@ -101,6 +124,8 @@ public class Utilisateur {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", status_user=" + status_user +
+                ", id_adress=" + id_adress +
+                ", id_role=" + id_role +
                 '}';
     }
 }

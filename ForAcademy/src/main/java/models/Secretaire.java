@@ -8,7 +8,7 @@ public class Secretaire extends Utilisateur{
 
 
     public Secretaire(int id_user ,String nom_user, String prenom_user, boolean genre, String telephone, String email, String password, boolean status_user ) {
-        super(id_user ,nom_user, prenom_user, genre, telephone,email, password, status_user);
+        super(id_user ,nom_user, prenom_user, genre, telephone,email, password, status_user, id_adress, id_role);
         Date date_recrutmnt_secret1 = date_recrutmnt_secret;
     }
 
