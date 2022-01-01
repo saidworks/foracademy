@@ -11,6 +11,8 @@ public class Utilisateur {
     private String password;
     private boolean status_user;
 
+    public Utilisateur() {
+    }
 
     public Utilisateur(int id_user, String nom_user, String prenom_user, boolean genre_user,
                        String telephone, String email, String password, boolean status_user) {

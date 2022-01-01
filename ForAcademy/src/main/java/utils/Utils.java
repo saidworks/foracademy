@@ -13,4 +13,9 @@ public class Utils {
         Timestamp timestamp = Timestamp.valueOf(utilDateTime);
         return timestamp;
     }
+
+    public static LocalDateTime getJavaLocalDateTime(Timestamp timestamp){
+        return timestamp.toLocalDateTime();
+    }
+
 }

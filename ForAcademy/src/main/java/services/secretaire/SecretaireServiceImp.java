@@ -42,11 +42,11 @@ public class SecretaireServiceImp implements SecretaireServiceInt {
     }
 
     @Override
-    public boolean secretairePointage() {
+    public boolean secretairePointage(Pointage pointage) {
         IsecretaireDao secretaireDao = new SecretaireDaoImp();
         Secretaire secretaire = secretaireDao.selectById(9);
         IpointageDao ipointageDao = new PointageDaoImp();
-        Pointage pointage = new Pointage();
+
         try {
             ipointageDao.savePointage(secretaire, pointage);
         } catch (SQLException e) {

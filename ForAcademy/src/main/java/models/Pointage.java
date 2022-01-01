@@ -26,6 +26,14 @@ public class Pointage {
         this.id_user = id_user;
     }
 
+    public Pointage(int id_pointage, LocalDateTime h_arrivee_pointage, LocalDateTime h_departe_pointage, Date date_pointage, int id_user) {
+        this.id_pointage = id_pointage;
+        this.h_arrivee_pointage = h_arrivee_pointage;
+        this.h_departe_pointage = h_departe_pointage;
+        this.date_pointage = date_pointage;
+        this.id_user = id_user;
+    }
+
     public int getId_pointage() {
         return id_pointage;
     }
@@ -46,16 +54,19 @@ public class Pointage {
         return h_departe_pointage;
     }
 
-    public void setH_departe_pointage(LocalDateTime h_departe_pointage) {
-        this.h_departe_pointage = h_departe_pointage;
+    public void setH_departe_pointage() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        this.h_departe_pointage = localDateTime;
     }
 
     public Date getDate_pointage() {
         return date_pointage;
     }
 
-    public void setDate_pointage(Date date_pointage) {
-        this.date_pointage = date_pointage;
+    public void setDate_pointage()
+    {
+        Date date = new Date();
+        this.date_pointage = date;
     }
 
     public int getId_user() {
