@@ -11,7 +11,7 @@ import java.util.List;
 public class SecretaireDaoImp implements IsecretaireDao {
 
     @Override
-    public void saveSecretaire(Secretaire secretaire) {
+    public boolean saveSecretaire(Secretaire secretaire) {
         Connection connection = null;
         Statement stmt = null;
         ResultSet rs = null;
@@ -38,17 +38,14 @@ public class SecretaireDaoImp implements IsecretaireDao {
             ps1.setDate(2, Utils.getSqlDate(secretaire.getDate_recrutmnt_secret()));
 
             int j = ps1.executeUpdate();
-            if (i == 1) {
-                System.out.println("ps executed successfully");
-            }
-            if (j == 1) {
-                System.out.println("succes ps 1");
-                System.out.println(secretaire.getDate_recrutmnt_secret());
+            if (i == 1 && j == 1) {
+                return true;
             }
 
+
         } catch (SQLException e) {
-            e.printStackTrace();
         }
+        return false;
     }
 
     @Override

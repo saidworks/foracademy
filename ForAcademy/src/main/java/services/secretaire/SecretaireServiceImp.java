@@ -34,8 +34,6 @@ public class SecretaireServiceImp implements SecretaireServiceInt {
             newPass = scanner.next();
             secretaireDaoImp.updateDetailsSecretaire(secretaire, column, newPass);
             return true;
-        } else {
-            System.out.println("password not match");
         }
 
         return false;
@@ -56,11 +54,7 @@ public class SecretaireServiceImp implements SecretaireServiceInt {
         return false;
     }
 
-    @Override
-    public boolean secretaireDepartPointage() {
 
-        return false;
-    }
 
 
 }

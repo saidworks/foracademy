@@ -5,7 +5,7 @@ import models.Secretaire;
 import java.util.List;
 
 public interface IsecretaireDao {
-    void saveSecretaire(Secretaire secretaire);
+    boolean saveSecretaire(Secretaire secretaire);
     Secretaire selectById(int id);
     List<Secretaire> selectAll();
     void deleteSecretaire(int id);
