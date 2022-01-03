@@ -26,9 +26,7 @@ public class SecretaireController {
         if (pointage_times == 2){
             pointage.setH_departe_pointage();
             secretaireService.secretairePointage(pointage);
-
         }
-
         return pointage;
     }
 
