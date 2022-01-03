@@ -10,5 +10,5 @@ public interface AdminDao {
     Admin findById(int id);
     void save(Admin admin);
     void update (Admin admin);
-    void deleteById(int id);
+
 }

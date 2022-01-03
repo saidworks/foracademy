@@ -8,11 +8,13 @@ import models.Admin;
 import models.Adress;
 import models.Specialite;
 
-import services.secretaire.SecretaireServiceImp;
+//import services.secretaire.SecretaireServiceImp;
 import services.secretaire.SecretaireServiceInt;
 import utils.DBUtil;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class App {
     public static void main(String[] args) {
@@ -63,16 +65,26 @@ public class App {
         //to delete one object
         /*adressDao.deleteById(2);*/
 
-        SecretaireServiceInt secretaireService = new SecretaireServiceImp();
+        //SecretaireServiceInt secretaireService = new SecretaireServiceImp();
         //secretaireService.changeMyPassword();
         //secretaireService.secretairePointage();
 
         AdminDao adminDao = new AdminDaoImp();
-        Admin admin = new Admin(0,"aimad","lmoden", true, "0647567788", "aimad@gmail.com","hhjejzhjzhj", true, 1, 1);
-        adminDao.save(admin);
+        /*Admin admin = new Admin(0,"abdo","youssef", "masculin", "056789788", "aziz@gmail.com","hellobardichjkhk", true, 3, 3);
+       adminDao.save(admin);*/
+        List<Admin> findAdmins =  new ArrayList<>();
+        //System.out.println("hi");
+        // to print all admins
+       /* findAdmins=  adminDao.findAll();
+        for (Admin x: findAdmins) {
+            System.out.println(x);
+        }*/
+        // admin find by id
+        /*Admin adminById = adminDao.findById(4);
+        System.out.println(adminById);*/
 
-
-
+        Admin admin = new Admin(4,"aminati","youssef", "masculin", "0659658022", "amina@gmail.com","hellobardichjkhk", true, 3, 3);
+       adminDao.update(admin);
 
     }
 }
