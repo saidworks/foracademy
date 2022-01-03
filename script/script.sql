@@ -6,7 +6,7 @@ CREATE TABLE utilisateur(
     id_user int(11) NOT NULL AUTO_INCREMENT,
     nom_user varchar(20),
     prenom_user varchar(20),
-    genre_user boolean,
+    genre_user varchar(10),
     telephone varchar(25),
     email varchar(55),
     password varchar(255),

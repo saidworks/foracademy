@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecretaireDaoImp implements IsecretaireDao {
+/*public class SecretaireDaoImp implements IsecretaireDao {
 
     @Override
     public void saveSecretaire(Secretaire secretaire) {
@@ -153,4 +153,4 @@ public class SecretaireDaoImp implements IsecretaireDao {
 
 }
 
-
+*/
