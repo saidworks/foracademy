@@ -70,7 +70,7 @@ public class SecretaireDaoImp implements IsecretaireDao {
 
 
                 //secretaire.toString();
-                return new Secretaire(id_user,nom_secretaire, prenom_secretaire, genre_secretaire, telephone, email, password, status_secretaire);
+                //return new Secretaire(id_user,nom_secretaire, prenom_secretaire, genre_secretaire, telephone, email, password, status_secretaire, );
 
             }
 
@@ -100,9 +100,9 @@ public class SecretaireDaoImp implements IsecretaireDao {
                 boolean genre_secretaire = rs.getBoolean("genre_user");
                 boolean status_secretaire = rs.getBoolean("status_user");
 
-                Secretaire secretaire = new Secretaire(id_secretaire ,nom_secretaire, prenom_secretaire, genre_secretaire, telephone, email, password, status_secretaire);
+                //Secretaire secretaire = new Secretaire(id_secretaire ,nom_secretaire, prenom_secretaire, genre_secretaire, telephone, email, password, status_secretaire);
 
-                secretaires.add(secretaire);
+               // secretaires.add(secretaire);
             }
         } catch (SQLException e) {
             e.printStackTrace();

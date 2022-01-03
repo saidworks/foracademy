@@ -1,3 +1,5 @@
+import dao.admin.AdminDao;
+import dao.admin.AdminDaoImp;
 import controllers.SecretaireController;
 import dao.adress.AdressDao;
 import dao.adress.AdressDaoImp;
@@ -5,11 +7,12 @@ import dao.pointageDAO.IpointageDao;
 import dao.pointageDAO.PointageDaoImp;
 import dao.specialite.SpecialiteDao;
 import dao.specialite.SpecialiteDaoImp;
+import models.Admin;
 import models.Adress;
 import models.Pointage;
 import models.Specialite;
 
-import services.secretaire.SecretaireServiceImp;
+//import services.secretaire.SecretaireServiceImp;
 import services.secretaire.SecretaireServiceInt;
 import utils.DBUtil;
 
@@ -64,28 +67,29 @@ public class App {
          System.out.println(adress);*/
 
         //to delete one object
+        /*adressDao.deleteById(2);*/
       //  adressDao.deleteById(2);
 
         //SecretaireServiceInt secretaireService = new SecretaireServiceImp();
         //secretaireService.changeMyPassword();
         //secretaireService.secretairePointage();
-       // SecretaireController secretaireController = new SecretaireController();
 
-        //secretaireController.secretairePointage();
-        /*
-        List<Pointage> pointages = new ArrayList<>();
-        PointageDaoImp pointageDaoImp = new PointageDaoImp();
-        pointageDaoImp.getAllPointage().forEach(n-> System.out.println(n));
+        AdminDao adminDao = new AdminDaoImp();
+        /*Admin admin = new Admin(0,"abdo","youssef", "masculin", "056789788", "aziz@gmail.com","hellobardichjkhk", true, 3, 3);
+       adminDao.save(admin);*/
+        List<Admin> findAdmins =  new ArrayList<>();
+        //System.out.println("hi");
+        // to print all admins
+       /* findAdmins=  adminDao.findAll();
+        for (Admin x: findAdmins) {
+            System.out.println(x);
+        }*/
+        // admin find by id
+        /*Admin adminById = adminDao.findById(4);
+        System.out.println(adminById);*/
 
-         */
-
-        IpointageDao pointageDao = new PointageDaoImp();
-        Pointage pointage = pointageDao.selectPointageById(2);
-        System.out.println(pointage.getH_arrivee_pointage());
-
-
-
-
+        Admin admin = new Admin(4,"aminati","youssef", "masculin", "0659658022", "amina@gmail.com","hellobardichjkhk", true, 3, 3);
+       adminDao.update(admin);
 
     }
 }
