@@ -1,4 +1,4 @@
-package services.secretaire;
+/*package services.secretaire;
 
 import dao.pointageDAO.IpointageDao;
 import dao.pointageDAO.PointageDaoImp;
@@ -10,8 +10,8 @@ import models.Secretaire;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-//public class SecretaireServiceImp implements SecretaireServiceInt {
-    /*Scanner scanner = new Scanner(System.in);
+public class SecretaireServiceImp implements SecretaireServiceInt {
+    Scanner scanner = new Scanner(System.in);
     @Override
     public boolean changeMyPassword() {
 
@@ -62,5 +62,6 @@ import java.util.Scanner;
         return false;
     }
 
+
+}
 */
-//}

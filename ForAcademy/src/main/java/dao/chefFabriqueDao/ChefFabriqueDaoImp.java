@@ -21,13 +21,17 @@ public class ChefFabriqueDaoImp implements IChefFabriqueDao {
         try {
             connection = DBUtil.getConnection();
             stmt = connection.createStatement();
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO utilisateur(nom_user, prenom_user, telephone, email, password) VALUES(?,?,?,?,?)");
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO utilisateur (nom_user, prenom_user, genre_user, telephone, email, password, status_user, id_adress, id_role) VALUES(?,?,?,?,?,?,?,?,?);");
             ps.setString(1, chefFabrique.getNom_user());
             ps.setString(2, chefFabrique.getPrenom_user());
-            ps.setString(3, chefFabrique.getTelephone());
-            ps.setString(4, chefFabrique.getEmail());
-            ps.setString(5, chefFabrique.getPassword());
+            ps.setString(3, chefFabrique.getGenre_user());
+            ps.setString(4, chefFabrique.getTelephone());
+            ps.setString(5, chefFabrique.getEmail());
 
+            ps.setString(6, chefFabrique.getPassword());
+            ps.setBoolean(7, chefFabrique.isStatus_user());
+            ps.setInt(8, chefFabrique.getId_adress());
+            ps.setInt(9, chefFabrique.getId_role());
 
             int i = ps.executeUpdate();
             int lastInserId = -1;
@@ -36,7 +40,7 @@ public class ChefFabriqueDaoImp implements IChefFabriqueDao {
                 lastInserId = rs.getInt(1);
             }
 
-            PreparedStatement ps1 = connection.prepareStatement("INSERT INTO cheffabrique(id_secretaire, date_recrutement_secret) VALUES (?,?)");
+            PreparedStatement ps1 = connection.prepareStatement("INSERT INTO cheffabrique (id_cheffabrique, date_recrutement_cheffabrique) VALUES (?,?)");
             ps1.setInt(1, lastInserId);
             ps1.setDate(2, Utils.getSqlDate(chefFabrique.getDate_recrutmnt_chefFabrique()));
 
@@ -54,7 +58,7 @@ public class ChefFabriqueDaoImp implements IChefFabriqueDao {
         }
     }
 
-    @Override
+    //@Override
     public ChefFabrique selectById(int id) {
         Connection connection = null;
         connection = DBUtil.getConnection();
@@ -69,14 +73,16 @@ public class ChefFabriqueDaoImp implements IChefFabriqueDao {
                 String telephone = rs.getString("telephone");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
-                boolean genre_chefFabrique = rs.getBoolean("genre_user");
+                String genre_chefFabrique = rs.getString("genre_user");
                 boolean status_chefFabrique = rs.getBoolean("status_user");
+                int id_role = rs.getInt("id_role");
+                int id_adress = rs.getInt("id_adress");
 
                 //Secretaire secretaire = new Secretaire(nom_secretaire, prenom_secretaire, genre_secretaire, telephone, email, password, status_secretaire);
 
 
                 //secretaire.toString();
-                return new ChefFabrique(id_user,nom_chefFabrique, prenom_chefFabrique, genre_chefFabrique, telephone, email, password, status_chefFabrique);
+                //return new ChefFabrique(id_user,nom_chefFabrique, prenom_chefFabrique, genre_chefFabrique, telephone, email, password, status_chefFabrique,id_role, id_adress );
 
             }
 
@@ -86,7 +92,7 @@ public class ChefFabriqueDaoImp implements IChefFabriqueDao {
         return null;
     }
 
-    @Override
+    /*@Override
     public List<ChefFabrique> selectAll() {
         List<ChefFabrique> chefFabriques = new ArrayList<>();
         Connection connection = null;
@@ -103,10 +109,12 @@ public class ChefFabriqueDaoImp implements IChefFabriqueDao {
                 String telephone = rs.getString("telephone");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
-                boolean genre_chefFabrique = rs.getBoolean("genre_user");
+                String genre_chefFabrique = rs.getString("genre_user");
                 boolean status_chefFabrique = rs.getBoolean("status_user");
+                int id_role = rs.getInt("id_role");
+                int id_adress = rs.getInt("id_adress");
 
-                ChefFabrique chefFabrique = new ChefFabrique(id_chefFabrique ,nom_chefFabrique, prenom_chefFabrique, genre_chefFabrique, telephone, email, password, status_chefFabrique);
+                ChefFabrique chefFabrique = new ChefFabrique(id_chefFabrique ,nom_chefFabrique, prenom_chefFabrique, genre_chefFabrique, telephone, email, password, status_chefFabrique, id_adress, id_role);
 
                 chefFabriques.add(chefFabrique);
             }
@@ -115,7 +123,7 @@ public class ChefFabriqueDaoImp implements IChefFabriqueDao {
         }
         return chefFabriques;
     }
-
+*/
     @Override
     public void deleteChefFabrique(int id) {
         // can we delete utilisateur???

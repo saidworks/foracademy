@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecretaireDaoImp implements IsecretaireDao {
+public class ScretaireDaoImp implements IsecretaireDao {
 
     @Override
     public void saveSecretaire(Secretaire secretaire) {
@@ -66,14 +66,14 @@ public class SecretaireDaoImp implements IsecretaireDao {
                 String telephone = rs.getString("telephone");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
-                boolean genre_secretaire = rs.getBoolean("genre_user");
+                String genre_secretaire = rs.getString("genre_user");
                 boolean status_secretaire = rs.getBoolean("status_user");
 
                 //Secretaire secretaire = new Secretaire(nom_secretaire, prenom_secretaire, genre_secretaire, telephone, email, password, status_secretaire);
 
 
                 //secretaire.toString();
-                return new Secretaire(id_user,nom_secretaire, prenom_secretaire, genre_secretaire, telephone, email, password, status_secretaire);
+                return new Secretaire(id_user,nom_secretaire, prenom_secretaire, genre_secretaire, telephone, email, password, status_secretaire,1,1);
 
             }
 
@@ -100,10 +100,10 @@ public class SecretaireDaoImp implements IsecretaireDao {
                 String telephone = rs.getString("telephone");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
-                boolean genre_secretaire = rs.getBoolean("genre_user");
+                String genre_secretaire = rs.getString("genre_user");
                 boolean status_secretaire = rs.getBoolean("status_user");
 
-                Secretaire secretaire = new Secretaire(id_secretaire ,nom_secretaire, prenom_secretaire, genre_secretaire, telephone, email, password, status_secretaire);
+                Secretaire secretaire = new Secretaire(id_secretaire ,nom_secretaire, prenom_secretaire, genre_secretaire, telephone, email, password, status_secretaire, 1, 1);
 
                 secretaires.add(secretaire);
             }

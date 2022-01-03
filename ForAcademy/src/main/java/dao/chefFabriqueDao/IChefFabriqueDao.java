@@ -8,7 +8,7 @@ import java.util.List;
 public interface IChefFabriqueDao {
     void saveChefFabrique(ChefFabrique chefFabrique);
     ChefFabrique selectById(int id);
-    List<ChefFabrique> selectAll();
+    //List<ChefFabrique> selectAll();
     void deleteChefFabrique(int id);
 
     void updateChefFabrique(ChefFabrique chefFabrique);

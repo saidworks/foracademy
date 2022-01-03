@@ -11,10 +11,10 @@ public class Pointage {
     private Date date_pointage;
     private int id_user;
 
-    public Pointage(LocalDateTime h_arrivee_pointage, LocalDateTime h_departe_pointage, Date date_pointage, int id_user) {
+    public Pointage(LocalDateTime h_arrivee_pointage, LocalDateTime h_departe_pointage, int id_user) {
         this.h_arrivee_pointage = h_arrivee_pointage;
         this.h_departe_pointage = h_departe_pointage;
-        this.date_pointage = date_pointage;
+        this.date_pointage = new Date();
         this.id_user = id_user;
     }
 
