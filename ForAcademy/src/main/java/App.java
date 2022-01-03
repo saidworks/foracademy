@@ -1,11 +1,15 @@
 import dao.admin.AdminDao;
 import dao.admin.AdminDaoImp;
+import controllers.SecretaireController;
 import dao.adress.AdressDao;
 import dao.adress.AdressDaoImp;
+import dao.pointageDAO.IpointageDao;
+import dao.pointageDAO.PointageDaoImp;
 import dao.specialite.SpecialiteDao;
 import dao.specialite.SpecialiteDaoImp;
 import models.Admin;
 import models.Adress;
+import models.Pointage;
 import models.Specialite;
 
 //import services.secretaire.SecretaireServiceImp;
@@ -46,7 +50,7 @@ public class App {
         specialiteDao.deleteById(4);*/
 
         //#### testinig for adress###
-        AdressDao adressDao = new AdressDaoImp();
+       // AdressDao adressDao = new AdressDaoImp();
          //to add a new adress.
          /*Adress adress = new Adress(0, "dar ssalam", "rabat", 350);
         adressDao.save(adress);*/
@@ -64,6 +68,7 @@ public class App {
 
         //to delete one object
         /*adressDao.deleteById(2);*/
+      //  adressDao.deleteById(2);
 
         //SecretaireServiceInt secretaireService = new SecretaireServiceImp();
         //secretaireService.changeMyPassword();
