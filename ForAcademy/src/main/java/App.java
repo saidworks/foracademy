@@ -83,7 +83,7 @@ public class App {
         */
         //System.out.println("hi");
         //to print all admins
-       /*findAdmins=  adminDao.findAll();
+       /* findAdmins= adminDao.findAll();
         for (Admin x: findAdmins) {
             System.out.println(x);
         }*/
